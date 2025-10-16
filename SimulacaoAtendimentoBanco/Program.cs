@@ -1,5 +1,4 @@
-﻿
-using SimulacaoAtendimentoBanco;
+﻿using SimulacaoAtendimentoBanco;
 
 using static SimulacaoAtendimentoBanco.Fila;
 
