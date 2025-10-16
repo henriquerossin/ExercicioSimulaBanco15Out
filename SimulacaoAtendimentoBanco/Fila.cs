@@ -21,6 +21,14 @@ namespace SimulacaoAtendimentoBanco
         {
             Console.Write("Informe o nome do novo cliente");
             cliente.Nome = Console.ReadLine()!;
+            Console.Write("Informe a idade do cliente: ");
+            cliente.Idade = int.Parse(Console.ReadLine()!);
+
+            return cliente;
+        }
+
+        public Cliente VerificarPrioridade(Cliente cliente)
+        {
             Console.Write("O Cliente é prioritário? (Sim/Não): ");
             string tipoCliente = Console.ReadLine()!;
 
@@ -28,17 +36,11 @@ namespace SimulacaoAtendimentoBanco
                 cliente.EPrioritario = true;
             else
                 cliente.EPrioritario = false;
-
-            Console.Write("Informe a idade do cliente: ");
-            cliente.Idade = int.Parse(Console.ReadLine()!);
-
             return cliente;
         }
 
         public void CriarFila(Cliente cliente)
         {
-            if (cliente.EPrioritario == true)
-            {
                 if (head == null)
                 {
                     head = tail = cliente;
@@ -48,7 +50,6 @@ namespace SimulacaoAtendimentoBanco
                     tail.Proximo = cliente;
                     tail = cliente;
                 }
-            }
         }
 
         public void Desenfileirar(Cliente cliente)
