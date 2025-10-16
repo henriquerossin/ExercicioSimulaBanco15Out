@@ -3,10 +3,12 @@ using SimulacaoAtendimentoBanco;
 
 using static SimulacaoAtendimentoBanco.Fila;
 
+Banco banco = new Banco();
+
 Fila FilaNormal = new Fila();
 Fila FilaPrioritaria = new Fila();
 
-int num = 0;
+int opcao;
 
 do
 {
@@ -16,7 +18,7 @@ do
     Console.WriteLine("2 - Atender próximo cliente: ");
     Console.WriteLine("3 - Exibir filas de clientes: ");
     Console.WriteLine("4 - Encerrar o programa: ");
-    int opcao = int.Parse(Console.ReadLine()!);
+    opcao = int.Parse(Console.ReadLine()!);
 
     switch (opcao)
     {
@@ -33,15 +35,9 @@ do
                 FilaPrioritaria.CadastrarCliente(cliente);
                 FilaPrioritaria.CriarFila(cliente);
             }
-            Console.WriteLine("Fila Comum: ");
-            FilaNormal.MostrarFila();
-            Console.WriteLine();
-            Console.WriteLine("Fila Prioritária: ");
-            FilaPrioritaria.MostrarFila();
-            Console.WriteLine();
             break;
         case 2:
-            Console.WriteLine("Em desenvolvimento...");
+            banco.OrdemAtendimento(FilaNormal, FilaPrioritaria);
             break;
         case 3:
             Console.WriteLine("Fila Comum: ");
@@ -52,8 +48,8 @@ do
             Console.WriteLine();
             break;
         case 4:
-            num = 4;
+            Console.WriteLine("Saindo...");
             break;
     }
 
-} while (num != 4);
+} while (opcao != 4);

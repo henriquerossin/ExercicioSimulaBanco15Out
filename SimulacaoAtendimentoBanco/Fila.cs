@@ -8,7 +8,7 @@ namespace SimulacaoAtendimentoBanco
 {
     public class Fila
     {
-        private Cliente head;
+        private Cliente head { get; set; }
         private Cliente tail;
 
         public Fila()
@@ -41,18 +41,18 @@ namespace SimulacaoAtendimentoBanco
 
         public void CriarFila(Cliente cliente)
         {
-                if (head == null)
-                {
-                    head = tail = cliente;
-                }
-                else
-                {
-                    tail.Proximo = cliente;
-                    tail = cliente;
-                }
+            if (head == null)
+            {
+                head = tail = cliente;
+            }
+            else
+            {
+                tail.Proximo = cliente;
+                tail = cliente;
+            }
         }
 
-        public void Desenfileirar(Cliente cliente)
+        public void Desenfileirar()
         {
             if (head == null)
             {
