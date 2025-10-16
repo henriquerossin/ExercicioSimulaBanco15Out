@@ -19,7 +19,7 @@ namespace SimulacaoAtendimentoBanco
 
         public Cliente CadastrarCliente(Cliente cliente)
         {
-            Console.Write("Informe o nome do novo cliente");
+            Console.Write("Informe o nome do novo cliente: ");
             cliente.Nome = Console.ReadLine()!;
             Console.Write("Informe a idade do cliente: ");
             cliente.Idade = int.Parse(Console.ReadLine()!);
@@ -50,6 +50,14 @@ namespace SimulacaoAtendimentoBanco
                 tail.Proximo = cliente;
                 tail = cliente;
             }
+        }
+
+        public bool Vazia()
+        {   
+            if (head == null)
+                return true;
+            else
+                return false;
         }
 
         public void Desenfileirar()

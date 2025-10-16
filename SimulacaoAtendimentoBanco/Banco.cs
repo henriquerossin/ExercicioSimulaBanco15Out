@@ -19,6 +19,23 @@ namespace SimulacaoAtendimentoBanco
         {
             if (count < 2)
             {
+                if (FilaNormal.Vazia() && FilaPrioritaria.Vazia())
+                {
+                    Console.WriteLine("Não há clientes para serem atendidos.");
+                    return;
+                }
+                else if (FilaNormal.Vazia())
+                {
+                    FilaPrioritaria.Desenfileirar();
+                    count = 0;
+                    return;
+                }
+                else if (FilaPrioritaria.Vazia())
+                {
+                    FilaNormal.Desenfileirar();
+                    count++;
+                    return;
+                }
                 FilaNormal.Desenfileirar();
                 count++;
             }
